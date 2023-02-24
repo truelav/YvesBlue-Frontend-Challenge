@@ -12,16 +12,13 @@ function App() {
   const [curCompaniesOnPage, setCurCompaniesOnPage] = useState(
     data.slice(0, 9)
   );
-  const [sortedCompanies, setSortedCompanies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleChangePage = (curPage) => {
     setCurrentPage(curPage);
     const sliceStart = (curPage - 1) * 10;
     const sliceEnd = curPage * 10 - 1;
-    const newCompanies = setCurCompaniesOnPage(
-      companiesData.slice(sliceStart, sliceEnd)
-    );
+    setCurCompaniesOnPage(companiesData.slice(sliceStart, sliceEnd));
   };
 
   const handleSort = (sortBy) => {

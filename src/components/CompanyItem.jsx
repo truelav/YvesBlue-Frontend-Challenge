@@ -18,13 +18,10 @@ export default function CompanyItem({ company }) {
       {companyRows.map((item, i) => {
         const isESGScore = item == "ESG Score";
         return (
-          <>
+          <div key={i}>
             {isESGScore ? (
-              <div className="charContainer">
-                <p className="CompanyValueP" key={i}>
-                  {" "}
-                  {company[item]}{" "}
-                </p>
+              <div className="charContainer" key={company[i]}>
+                <p className="CompanyValueP"> {company[item]} </p>
                 <ScoreChartComp val={parseInt(company[item], 10)} />
               </div>
             ) : (
@@ -33,7 +30,7 @@ export default function CompanyItem({ company }) {
                 {company[item]}{" "}
               </p>
             )}
-          </>
+          </div>
         );
       })}
     </div>
