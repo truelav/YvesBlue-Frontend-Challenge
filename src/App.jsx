@@ -27,15 +27,25 @@ function App() {
   const handleSort = (sortBy) => {
     //we need to handle different based on the field
     //some have $ sign the others are not integers and third are letters
+    let newSortedCompanies = [];
+    //
+    if (sortBy === "Company Name") {
+      newSortedCompanies = [...curCompaniesOnPage].sort(
+        (a, b) => a[`${sortBy}`] - b[`${sortBy}`]
+      );
+    } else if (sortBy === "Total Revenue" || sortBy === "Company Market Cap") {
+      newSortedCompanies = [...curCompaniesOnPage].sort(
+        (a, b) =>
+          parseInt(b[`${sortBy}`].substring(1), 10) -
+          parseInt(a[`${sortBy}`].substring(1), 10)
+      );
+    } else {
+      newSortedCompanies = [...curCompaniesOnPage].sort(
+        (a, b) => parseInt(b[`${sortBy}`], 10) - parseInt(a[`${sortBy}`], 10)
+      );
+    }
 
-    console.log(sortBy, curCompaniesOnPage);
-    const newSortedCompanies = [...curCompaniesOnPage].sort(
-      (a, b) => parseInt(a[`${sortBy}`], 10) - parseInt(b[`${sortBy}`], 10)
-    );
-    console.log(newSortedCompanies);
     setCurCompaniesOnPage(newSortedCompanies);
-
-    // curCompaniesOnPage.forEach((a) => console.log(a[`${sortBy}`]));
   };
 
   return (

@@ -33,12 +33,17 @@ p {
 /* PAGINATIONS */
 .PaginationaComp {
   display: flex;
+  justify-content: right;
 }
 
 .pageNum {
-  border: 1px solid gray;
-  margin: 2px;
+  border-bottom: 1px solid gray;
+  margin: 5px;
   padding: 1px 3px;
+}
+
+.pageNum span {
+  margin-right: 10px;
 }
 
 .pageNum:hover {
@@ -48,4 +53,9 @@ p {
 .active {
   background-color: gray;
   color: white;
+}
+
+.pageButton {
+  border: solid 1px black;
+  border-radius: none;
 }

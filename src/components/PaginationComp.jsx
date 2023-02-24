@@ -11,8 +11,14 @@ export default function PaginationComp({
   const pagesArray = getPagesArray(getCountOfPages(currentNumOfCompanies, 10));
   return (
     <div className="PaginationaComp">
-      <button className="pageButton">PREV</button>
-      {pagesArray.map((page, i) => {
+      <button
+        className="pageButton"
+        disabled={currentPage === 1}
+        onClick={() => handleChangePage(currentPage - 1)}
+      >
+        PREV
+      </button>
+      {/* {pagesArray.map((page, i) => {
         return (
           <div
             onClick={() => handleChangePage(page)}
@@ -22,8 +28,18 @@ export default function PaginationComp({
             {page}
           </div>
         );
-      })}
-      <button className="pageButton">Next</button>
+      })} */}
+      <div className="pageNum">
+        <span>PAGE</span>
+        {currentPage}
+      </div>
+      <button
+        className="pageButton"
+        disabled={currentPage === currentNumOfCompanies}
+        onClick={() => handleChangePage(currentPage + 1)}
+      >
+        Next
+      </button>
     </div>
   );
 }
