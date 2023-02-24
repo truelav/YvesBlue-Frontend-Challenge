@@ -30,8 +30,8 @@ function App() {
     let newSortedCompanies = [];
     //
     if (sortBy === "Company Name") {
-      newSortedCompanies = [...curCompaniesOnPage].sort(
-        (a, b) => a[`${sortBy}`] - b[`${sortBy}`]
+      newSortedCompanies = [...curCompaniesOnPage].sort((a, b) =>
+        a[`${sortBy}`].localeCompare(b[`${sortBy}`])
       );
     } else if (sortBy === "Total Revenue" || sortBy === "Company Market Cap") {
       newSortedCompanies = [...curCompaniesOnPage].sort(

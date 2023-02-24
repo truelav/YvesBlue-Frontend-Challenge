@@ -1,4 +1,5 @@
 import React from "react";
+import ScoreChartComp from "./ScoreChartComp";
 
 export default function CompanyItem({ company }) {
   const companyRows = [
@@ -15,10 +16,24 @@ export default function CompanyItem({ company }) {
   return (
     <div className="CompanyItem">
       {companyRows.map((item, i) => {
+        const isESGScore = item == "ESG Score";
         return (
-          <p className="CompanyValueP" key={i}>
-            {company[item]}
-          </p>
+          <>
+            {isESGScore ? (
+              <div className="charContainer">
+                <p className="CompanyValueP" key={i}>
+                  {" "}
+                  {company[item]}{" "}
+                </p>
+                <ScoreChartComp val={parseInt(company[item], 10)} />
+              </div>
+            ) : (
+              <p className="CompanyValueP" key={i}>
+                {" "}
+                {company[item]}{" "}
+              </p>
+            )}
+          </>
         );
       })}
     </div>

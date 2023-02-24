@@ -1,6 +1,7 @@
 html {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 h2 {
@@ -21,13 +22,17 @@ p {
 
 .CompanyItem {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 1fr 2fr 1fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1fr 2fr 2fr 2fr;
   grid-gap: 5px;
 }
 
 .CompanyValueP {
   border-bottom: 1px gray solid;
   padding: 3px;
+}
+
+.CompanyValueP:hover {
+  cursor: pointer;
 }
 
 /* PAGINATIONS */
@@ -58,4 +63,15 @@ p {
 .pageButton {
   border: solid 1px black;
   border-radius: none;
+}
+
+.charContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ScoreChartComp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
